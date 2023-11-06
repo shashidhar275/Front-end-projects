@@ -1,0 +1,319 @@
+/*Semantic elements 
+1.<nav> 
+2.<header>
+3.<main> this contains the main content of our websites 
+these work same as <div> but they have special meaning to screeen readers and also for search engines or any kind of robot that is reading our websites ...to get our structured in proper manner we have to use replace some of our div's with the semantic elements */
+
+p{
+  /*font-family: roboto, arial; */ /*Font stack (second one is for backup*/
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+body{
+  font-family: roboto ,arial;
+  margin: 0px;
+  padding-top: 80px;
+  padding-left: 90px;
+  padding-right: 24px;
+  background-color: rgb(248,248,248)
+}
+
+.sidebar{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 55px;
+  width: 80px;
+  background-color: white;
+  z-index: 200; /*Inorder to cover header section we have to give z-index value higher than header's z-index*/
+}
+
+.sidebar-parts{
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.sidebar-parts:hover{
+  background-color: rgb(179, 179, 179);
+}
+
+.sidebar img{
+  width: 25px;
+  margin-bottom: 5px;
+}
+
+.sidebar-parts div{
+  font-size: 10px;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  height: 55px;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(228, 222, 222);
+  z-index: 100;
+}
+
+.notification-container{
+  position: relative;
+}
+
+.notification-count{
+  position: absolute;
+  background-color: rgb(200,0,0);
+  color: white;
+  top: -4px;        /*Since we want our notification count little bit outside the notification-container ..to get that trick here is that to use negative values to the top and right properties*/
+  right: -5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  border-radius: 10px;
+  font-size: 10px;
+}
+
+.hamburger-logo{
+  height: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.youtube-logo{
+  height: 20px;
+}
+
+.left-section{
+  /* background-color: lightblue;
+  width: 150px; */
+  display: flex;  /*Flexbox will only be effective for layer 1 items not for layer 2 and so on */
+  align-items: center;
+}
+
+.middle-section{
+  flex: 1;
+  margin-left: 70px;
+  margin-right: 35px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar{
+  flex: 1;
+  height: 36px;
+  padding-left: 10px;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(192,192,192);
+  border-radius: 2px;
+  box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05); /*In order to get shadow inside of the search box we need to put inset as the first parameter*/
+  width: 0px;  /*Normally search bars have default width we can't really see that because we set flex to 1 so it is growing with the page as soon as it hits the default width it's not gonna shrink anymore so to remove that default width we done this ...Now we can see that search box shrinks as much as possible*/  
+}
+
+.search-bar::placeholder{
+  font-size: 15px;
+}
+
+.search-button{
+  width: 66px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240,240,240);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(192,192,192);
+  margin-left: -1px;  /*Normal positive margin adds space and it pushes the element negative margin substracts the space and the pull the element to that side*/
+  border-radius: 1px;
+  margin-right: 20px;
+
+}
+
+.search-button,
+.voice-search-button,
+.upload-icon-container{
+  position: relative;
+  display: flex;
+  justify-content: center;   /* For centering the tooltip*/
+  align-items: center;
+}
+
+.search-button .tooltip,
+.voice-search-button .tooltip,
+.upload-icon-container .tooltip
+{
+  position: absolute;
+  background-color: gray;
+  color: white;
+  bottom: -40px;
+  padding: 5px;
+  border-radius: 2px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;         /*We use this to disable hoverrin behaviour*/
+  white-space: nowrap;         /* This will prevent text from wrapping around (For the tooltip of voice-search-button)*/
+}
+
+.search-button:hover .tooltip,
+.voice-search-button:hover .tooltip,
+.upload-icon-container:hover .tooltip{  /*we only target the element having class tooltip whenever we are hovering over the element having the class search-button  */
+  opacity: 1;
+}
+
+.search-icon{
+  width: 22px;
+}
+
+.voice-search-button{
+  width: 40px;
+  height: 40px;
+  border-radius: 20px; /*To round an image trick here is that to have the border radius :half of the widht or height */
+  border: none;
+  background-color: rgb(248, 248 , 248);
+}
+
+.voice-search-icon{
+  width: 23px;
+}
+
+.right-section{
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  flex-shrink: 0;    /*here it is a weird behaviour of flexbox if I resize my browser and I make it smaller notice that the icons start to get closure together this is because flexbox is flexible when we start not having enough space it will start shrinking the items inside...To prevent right section from shrinking we set flex-shrink to 0(no matter what happens we gonna keep this width and we are not going to shrink*/
+}
+
+.upload-icon{
+  width: 24px;
+}
+
+.youtube-apps-icon{  
+  width: 24px;
+}
+
+.notifications-icon{
+  width: 24px;
+}
+
+.youtube-profile-icon{
+  width: 32px;
+  border-radius: 16px;
+}
+
+
+.thumbnail{
+   width: 100%; /* When we set the width height will also adjust ..so that image has the same dimension ..it means it keeps it's original shape (if we further add height it loses it's shape (So it's clear we can change width to any number it doesn't affect the image shape) (So important to note that we don't require to use below property if we just use the width property to set the image as width property shrinks image and maintains it's shape as well*/
+   /* height: 300px; */
+   /*object-fit: cover;*/ /* covers entire area mentioned (it may or maynot show entire image) */
+   /* object-position: right; */
+    /*object-fit: contain;*/ /*The image will shrink to fit inside the mentioned area (it shows entire image) but some part may or may not be wasted*/
+    /*object-position: center;*/
+   /* display: block;*/
+
+}
+.video-preview{
+  /* width: 300px;*/  /*IMPORTANT block-element : take up the entire line in their container*/
+  /*display: inline-block;
+  vertical-align: top;
+  margin-right: 15px; */
+}
+
+.video-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 15px;
+  row-gap: 20px;
+}
+
+@media (max-width: 750px)
+{
+  .video-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 751px) and (min-width: 1001px)
+{
+  .video-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px)
+{
+  .video-grid{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.video-title{
+  margin-top: 0px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.video-info-grid{
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+
+.channel-picture{
+}
+
+.video-info{
+  /* width: 200px;*/ /*if we set width to 250px it will not going to wrap up to the width of the main div..inorder to do it we have to set it to 245px that will cause it to appear beside each other..This is one problem with inline block is that it has some allignmenet problem ..2nd problem of using inline block is that it is not vertically alligned ..so now we use CSS grid which will help us to create perfectly alligned Horizontal layouts*/
+  /* display: inline-block; */
+}
+
+.profile-picture{
+  width: 65%;      /*(or 50px Before setting this value image was overflowing so div couldn't find the height required for it) Image have a default behaviour of overflowing so we need to handle it very keenly*/
+  border-radius: 25px;
+}
+
+.video-author,
+.video-stats{
+  font-size: 12px;
+  color: rgb(96,96,96);
+}
+
+.thumbnail-row{
+  margin-bottom: 6px;
+  position: relative;
+}
+
+.video-time{
+  position: absolute;
+  background-color: black;
+  color: white;
+  bottom: 10px;
+  right: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.video-author{
+  margin-bottom: 4px;
+}
+

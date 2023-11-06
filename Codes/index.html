@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Youtube clone</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!--Here we wanted to focus on the content so we used flexbox(here middle-section was shrink and grow and also it was having max width property other two we wanted to have static width so in order to focus on these content we used flexbox rather than grid)-->
+    <header class="header">
+      <div class="left-section">
+        <img class="hamburger-logo" src="../Icons/hamburger-menu.svg" alt="">
+        <img class="youtube-logo" src="../Icons/youtube-logo.svg" alt="">
+    </div>
+    <div class="middle-section">    
+        <input class="search-bar" type="text" placeholder="Search"> <!--we can also give type -checkbox --> 
+        <button class="search-button"><img class="search-icon" src="../Icons/search.svg" alt="">
+        <div class="tooltip">Search</div></button><!--Note here we can center the search icon by making the button's display value to flex and then image to set it to align items property to center-->
+        <button class="voice-search-button"><img class="voice-search-icon" src="../Icons/voice-search-icon.svg" alt="">
+            <div class="tooltip">Search with your voice </div>
+        </button>
+    </div>
+      <div class="right-section">
+        <div class="upload-icon-container">
+            <img class="upload-icon" src="../Icons/upload.svg" alt="">
+            <div class="tooltip">Upload</div>
+        </div>
+        <img class="youtube-apps-icon" src="../Icons/youtube-apps.svg" alt="">
+        <div class="notification-container">
+            <img class="notifications-icon" src="../Icons/notifications.svg" alt="">
+            <div class="notification-count">3</div>
+        </div>
+        <img class="youtube-profile-icon" src="../Icons/Profile pic.jpg" alt="">
+      </div>
+    </header>
+
+    <nav class="sidebar">
+        <div class="sidebar-parts">
+            <img src="../Icons/home.svg" alt="">
+            <div>Home</div>
+        </div>
+        <div class="sidebar-parts">
+            <img src="../Icons/explore.svg" alt="">
+            <div>Explore</div>
+        </div>
+        <div class="sidebar-parts">
+            <img src="../Icons/subscriptions.svg" alt="">
+            <div>Subscriptions</div>
+        </div>
+        <div class="sidebar-parts">
+            <img src="../Icons/originals.svg" alt="">
+            <div>Originals</div>
+        </div>
+        <div class="sidebar-parts">
+            <img src="../Icons/youtube-music.svg" alt="">
+            <div>Youtube Music</div>
+        </div>
+        <div class="sidebar-parts">
+            <img src="../Icons/library.svg" alt="">
+            <div>Library</div>
+        </div>
+    </nav>
+    
+    <!--The problem that thumbnail will appear on the header : if an element like video-preview is written below an element like the header up here  the element that is written below appear infront ...however this rule doesn't  appy to position static (The position static elements will always appear at the back) as soon as we modify element to relative (something that is not postition static ) the rules of which element has written first will start to apply so in this case thumbnatil row is positioned relative and it is position below the header in the code it's gonna appear on top of the header  ...inorder to fix this we use z-index on the header (defaultly thumbnail row has the z-index of 0 )-->
+
+    <main>
+        <section class="video-grid"> <!--Grids are very helpful in making well alligned horizontal layouts and note that these are also well vertically alligned-->
+            <div class="video-preview">
+              <!-- Nested layout technique -->
+                  <!-- Vertical layout -->
+                  <div class="thumbnail-row">
+                      <img class="thumbnail" src="../Thumbnails/Virat-kohli.webp" alt="Virat Kohli">
+                      <div class="video-time">8:20</div>
+                  </div>
+                  <div class="video-info-grid">
+                      <!-- Horizontal layout -->
+                      <div class="channel-picture">
+                          <img class="profile-picture" src="../Profile-images/Amazon-video.jpg" alt="Amazon-video-channel-profile">
+                      </div>
+                      <div class="video-info">
+                          <p class="video-title">Virat Kohli Makes The Australian Cricket Team Pay | The Test | Prime Video India</p>
+                          <p class="video-author">Prime Video India</p>
+                          <p class="video-stats">7.4M views  11 months ago</p>
+                      </div>
+                  </div>
+              </div>
+          
+          
+              <div class="video-preview">
+                <!-- Nested layout technique -->
+                    <!-- Vertical layout -->
+                    <div class="thumbnail-row">
+                        <img class="thumbnail" src="../Thumbnails/Cheques-Shubh.jpg" alt="Cheques-song">
+                        <div class="video-time">3:14</div>
+                    </div>
+                    <div class="video-info-grid">
+                        <!-- Horizontal layout -->
+                        <div class="channel-picture">
+                            <img class="profile-picture" src="../Profile-images/Shubh.jpg" alt="Shubh-profile-picture">
+                        </div>
+                        <div class="video-info">
+                            <p class="video-title"> Shubh - Cheques (Official Music Video)</p>
+                            <p class="video-author">SHUBH</p>
+                            <p class="video-stats">69M views &#183; 2 months ago</p>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="video-preview">
+                  <!-- Nested layout technique -->
+                      <!-- Vertical layout -->
+                      <div class="thumbnail-row">
+                          <img class="thumbnail" src="../Thumbnails/Aao-raja.jpg" alt="Aao-raja-song">
+                      </div>
+                      <div class="video-info-grid">
+                          <!-- Horizontal layout -->
+                          <div class="channel-picture">
+                              <img class="profile-picture" src="../Profile-images/Zee-music.jpg" alt="Zee-music-channel-picture">
+                          </div>
+                          <div class="video-info">
+                              <p class="video-title">Aao Raja | Yo Yo Honey Singh | Chitrangada Singh | Neha Kakkar | Gabbar is Back</p>
+                              <p class="video-author">Zee Music Company</p>
+                              <p class="video-stats">  185M views &#183; 8 years ago</p>
+                          </div>
+                      </div>
+                  </div>
+              
+              
+                  <div class="video-preview">
+                    <!-- Nested layout technique -->
+                        <!-- Vertical layout -->
+                        <div class="thumbnail-row">
+                            <img class="thumbnail" src="../Thumbnails/Magnus-vidit-game.webp" alt="Magnus-charlsen-Vidit-game">
+                        </div>
+                        <div class="video-info-grid">
+                            <!-- Horizontal layout -->
+                            <div class="channel-picture">
+                                <img class="profile-picture" src="../Profile-images/chess-channel.jpg" alt="chess-channel-profile-picture">
+                            </div>
+                            <div class="video-info">
+                                <p class="video-title"> The Fastest Wins In Magnus Carlsen's Career</p>
+                                <p class="video-author">Classical</p>
+                                <p class="video-stats">7.2M views &#183; 6 months ago</p>
+                            </div>
+                        </div>
+                    </div>
+          
+                    <div class="video-preview">
+                      <!-- Nested layout technique -->
+                          <!-- Vertical layout -->
+                          <div class="thumbnail-row">
+                              <img class="thumbnail" src="../Thumbnails/Haffman.webp" alt="Motivational-madness-profile-picture">
+                          </div>
+                          <div class="video-info-grid">
+                              <!-- Horizontal layout -->
+                              <div class="channel-picture">
+                                  <img class="profile-picture" src="../Profile-images/haffman-motivations.jpg" alt="Haffman-motivation-about-study">
+                              </div>
+                              <div class="video-info">
+                                  <p class="video-title">Neuroscientist: TRY IT FOR 1 DAY! You Won't Regret It! Habits of The Ultra Wealthy for 2023</p>
+                                  <p class="video-author">Motivation Madness</p>
+                                  <p class="video-stats"> 6.3M views &#183; 10 months ago</p>
+                              </div>
+                          </div>
+                      </div>
+                  
+                  
+                      <div class="video-preview">
+                        <!-- Nested layout technique -->
+                            <!-- Vertical layout -->
+                            <div class="thumbnail-row">
+                                <img class="thumbnail" src="../Thumbnails/Joker.jpg" alt="joker-song">
+                            </div>
+                            <div class="video-info-grid">
+                                <!-- Horizontal layout -->
+                                <div class="channel-picture">
+                                    <img class="profile-picture" src="../Profile-images/joker-channel.jpg" alt="Joker-channel">
+                                </div>
+                                <div class="video-info">
+                                    <p class="video-title"> Indila Dernière Danse - Joker remix | new joker songs | JOKER (2019) | Joaquin Phoenix songs</p>
+                                    <p class="video-author">Attitudinal Quotes</p>
+                                    <p class="video-stats">33M views &#183; 3 years ago</p>
+                                </div>
+                            </div>
+                        </div>
+      
+      
+                        <div class="video-preview">
+                          <!-- Nested layout technique -->
+                              <!-- Vertical layout -->
+                              <div class="thumbnail-row">
+                                  <img class="thumbnail" src="../Thumbnails/Brown-rang.webp" alt="brown-rang">
+                              </div>
+                              <div class="video-info-grid">
+                                  <!-- Horizontal layout -->
+                                  <div class="channel-picture">
+                                      <img class="profile-picture" src="../Profile-images/being-punjabi-channel.jpg" alt="Being-punjabi-profile-picture">
+                                  </div>
+                                  <div class="video-info">
+                                      <p class="video-title"> Brown Rang | Yo Yo Honey Singh | Full Song | Latest Punjabi Song 2023</p>
+                                      <p class="video-author">Being Punjabi</p>
+                                      <p class="video-stats">7.8M views &#183; 7 months ago</p>
+                                  </div>
+                              </div>
+                          </div>
+      
+                          <div class="video-preview">
+                              <!-- Nested layout technique -->
+                                  <!-- Vertical layout -->
+                                  <div class="thumbnail-row">
+                                      <img class="thumbnail" src="../Thumbnails/Magnus-the-champion.webp" alt="Magnus-Carlsen-the-world-champion">
+                                  </div>
+                                  <div class="video-info-grid">
+                                      <!-- Horizontal layout -->
+                                      <div class="channel-picture">
+                                          <img class="profile-picture" src="../Profile-images/chessbase-india.jpg" alt="chess-base-India-profile-picture">
+                                      </div>
+                                      <div class="video-info">
+                                          <p class="video-title">The game that made Magnus Carlsen the World Rapid Champion 2019</p>
+                                          <p class="video-author">ChessBase India</p>
+                                          <p class="video-stats">7.3M views &#183; 3 years ago
+                                              </p>
+                                      </div>
+                                  </div>
+                              </div>
+      
+                              <div class="video-preview">
+                                  <!-- Nested layout technique -->
+                                      <!-- Vertical layout -->
+                                      <div class="thumbnail-row">
+                                          <img class="thumbnail" src="../Thumbnails/Makhna.webp" alt="Makhna-song">
+                                      </div>
+                                      <div class="video-info-grid">
+                                          <!-- Horizontal layout -->
+                                          <div class="channel-picture">
+                                              <img class="profile-picture" src="../Profile-images/Zee-music.jpg" alt="Zee-music-channel-picture">
+                                          </div>
+                                          <div class="video-info">
+                                              <p class="video-title"> Makhna - Drive| Sushant Singh Rajput, Jacqueline Fernandez| Tanishk Bagchi, Asees Kaur</p>
+                                              <p class="video-author"> Zee Music Company</p>
+                                              <p class="video-stats">461M views &#183; 3 years ago</p>
+                                          </div>
+                                      </div>
+                                  </div>
+      
+                                  <div class="video-preview">
+                                      <!-- Nested layout technique -->
+                                          <!-- Vertical layout -->
+                                          <div class="thumbnail-row">
+                                              <img class="thumbnail" src="../Thumbnails/Walter-Lewin.webp" alt="Lesson-by-walter-Levin">
+                                          </div>
+                                          <div class="video-info-grid">
+                                              <!-- Horizontal layout -->
+                                              <div class="channel-picture">
+                                                  <img class="profile-picture" src="../Profile-images/Walter-lewin-channel.jpg" alt="Walter-levin-profile-picture">
+                                              </div>
+                                              <div class="video-info">
+                                                  <p class="video-title"> For the Love of Physics - Walter Lewin - May 16, 2011</p>
+                                                  <p class="video-author">Lectures by Walter Lewin. They will make you ♥ Physics.</p>
+                                                  <p class="video-stats">   9.1M views &#183; 8 years ago</p>
+                                              </div>
+                                          </div>
+                                      </div>
+      
+                                      <div class="video-preview">
+                                          <!-- Nested layout technique -->
+                                              <!-- Vertical layout -->
+                                              <div class="thumbnail-row">
+                                                  <img class="thumbnail" src="../Thumbnails/Suraj-dooba.webp" alt="Lesson-by-walter-Levin">
+                                              </div>
+                                              <div class="video-info-grid">
+                                                  <!-- Horizontal layout -->
+                                                  <div class="channel-picture">
+                                                      <img class="profile-picture" src="../Profile-images/t-series-channel.jpg" alt="Walter-levin-profile-picture">
+                                                  </div>
+                                                  <div class="video-info">
+                                                      <p class="video-title">'Sooraj Dooba Hain' FULL VIDEO SONG | Arijit singh Aditi Singh Sharma | T-SERIES</p>
+                                                      <p class="video-author">T-Series</p>
+                                                      <p class="video-stats">208M views &#183; 8 years ago
+                                                          </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+      
+                                          <div class="video-preview">
+                                              <!-- Nested layout technique -->
+                                                  <!-- Vertical layout -->
+                                                  <div class="thumbnail-row">
+                                                      <img class="thumbnail" src="../Thumbnails/Don-omar-car.webp" alt="Lesson-by-walter-Levin">
+                                                  </div>
+                                                  <div class="video-info-grid">
+                                                      <!-- Horizontal layout -->
+                                                      <div class="channel-picture">
+                                                          <img class="profile-picture" src="../Profile-images/car-channel.jpg" alt="Walter-levin-profile-picture">
+                                                      </div>
+                                                      <div class="video-info">
+                                                          <p class="video-title">Don Omar - Danza Kuduro [REMIX] | CAR VIDEO</p>
+                                                          <p class="video-author">Planet GT</p>
+                                                          <p class="video-stats">96M views &#183; 2 years ago</p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+        </section>
+    </main>
+  </body>
+</html>
